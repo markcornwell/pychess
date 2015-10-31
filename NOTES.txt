@@ -1,0 +1,84 @@
+$Id: NOTES.txt 8 2010-01-13 12:17:55Z mark $
+
+Copyright (C) 2006-2009 by Mark Cornwell
+
+Notes
+
+1. Numbering used by square
+
+56 57 58 59 60 61 62 63
+48 49 50 51 52 53 54 55
+40 41 42 43 44 45 46 47
+32 33 34 35 36 37 38 39
+24 25 26 27 28 29 30 31
+16 17 18 19 20 21 22 23
+ 8  9 10 11 12 13 14 15
+ 0  1  2  3  4  5  6  7
+
+2. Chess GUI Standard Protocols
+
+A display GUI is highly desirable.  Could use an OTS soln
+such as WinBoard.  More control if we write our own, compatible
+with a standard protocol.  Research standard protocols.
+
+  Tim Mann's XBoard/Winboard Protocols
+  Universal Chess Interface (UCI) Protocol
+
+  Links
+     http://www.aarontay.per.sg/Winboard/uciwinboard.html
+     https://netfiles.uiuc.edu/acozzie2/www/zappa/
+     http://www.sigmachess.com/_features/features.html
+     http://www.tim-mann.org/xboard.html
+     http://www.tim-mann.org/Standard
+
+After some reading, WinBoard looks the most appropriate to start out.
+WinBoard looks like it may be stale.  Latest releases are 2003. Is the protocol
+srtill alive?
+
+UCI does have this interesting "stateless" notion.  Better for multi-server
+searches?
+
+2.1. Xboard
+
+After some deliberation I decided to implement an xboard front end.  The core
+document is in engine-intf.html taken from http://tim-mann.org/xboard in May 2006.
+It seems pretty stable.  This version is taken from 2002, but it all seems to be
+working just fine.
+
+Xboard is a gui front end.  There is a configuration file for Xboard that says
+where the chess engine is found.  When Xboard starts up, it just fires off the
+chess engine and just talks to it over the standard input and standard output
+as if it were a command line interface.  This is for historical reasons, since
+Xboard originally emulated the gnuchess command line interface.
+
+Succeeded in getting mediate.py to work with xboard under cygwin.  The trick is
+to use the cygwin X-windows support.  I downloaded the source for xboard and compiled
+it under cygwin with the lines:
+
+    configure
+    make
+    
+It worked fine.  Stay away from the Winboard version.  It does not work for
+reason's I really don't care to discern.  You need to be running an xserver.
+I start one from cygwin with the command:
+
+    xwin &
+    
+Then I run xboard from the script:
+
+    ./mediate.sh
+    
+Which of this writing just looks like:
+
+    #!/bin/bash
+    export DISPLAY=localhost:0.0
+    ./xboard -fcp mediate.py &
+
+The mediate.py is just a command loop that talks back and forth to xboard
+over stdin and stdout.  It drops a log file in mediate.log that shows all
+the commands and responses that went back and forth from the engine to
+xboard.
+
+
+2013-08-13   Conversion to GIT repository.
+

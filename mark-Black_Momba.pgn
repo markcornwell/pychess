@@ -1,0 +1,17 @@
+[Event "Computer chess game"]
+[Site "kai"]
+[Date "2006.06.14"]
+[Round "-"]
+[White "mark"]
+[Black "Black Momba"]
+[Result "0-1"]
+[TimeControl "40/7200"]
+
+1. Nf3 Nf6 2. g3 d5 3. Bg2 c5 4. d3 e6 5. Nbd2 Nc6 6. O-O Bd6 7. c3 O-O 8.
+Qc2 Bd7 9. Re1 Ng4 10. h3 Nf6 11. e4 dxe4 12. dxe4 Qa5 13. e5 Nxe5 14. Nxe5
+Bxe5 15. Rxe5 Qd8 16. Bxb7 Rb8 17. Bg2 Rc8 18. Nc4 Qe8 19. Bg5 Nh5 20. Rd1
+Bb5 21. Bf1 Rc6 22. Bd3 Bxc4 23. Bxc4 a6 24. Bd3 h6 25. Bxh6 gxh6 26. Rxh5
+f5 27. Re1 Qxh5 28. Kg2 Qe8 29. Bc4 f4 30. g4 f3+ 31. Kg1 Qc8 32. Re5 Re8
+33. Qg6+ Kh8 34. Qxh6+ Kg8 35. Rg5+ Kf7 36. Qg7#
+{ white mates } 0-1
+
